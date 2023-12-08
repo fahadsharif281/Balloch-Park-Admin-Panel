@@ -1,7 +1,34 @@
-@import '../../../styles/variables.scss';
-
+@import "../../../styles/variables.scss";
+.container {
+  background-image: url("../../../assets/png/bgImg.png");
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: calc(100vh);
+}
 .main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cardbody {
+  padding: 0px 20px;
+}
+.btn {
+  background-color: $color-green;
+  border: none;
+  &:hover {
+    background-color: $color-green;
+  }
+}
+p a {
+  color: $color-light-blue;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+    color: $color-light-blue;
+  }
+}
+Form {
+  color: $color-grey-light;
 }
