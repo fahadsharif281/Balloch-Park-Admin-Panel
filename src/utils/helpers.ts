@@ -1,4 +1,4 @@
-const BASE_URL = 'https://fakerapi.it';
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 const ENDPOINTS = {
     GETACTIVECOMPAIGN: 'getActiveCompaign',
