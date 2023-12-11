@@ -26,7 +26,8 @@
     "sass": "^1.57.1",
     "save-dev": "^0.0.1-security",
     "typescript": "^4.9.4",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^1.3.2"
   },
   "scripts": {
     "start": "react-scripts start",

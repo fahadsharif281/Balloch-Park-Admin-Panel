@@ -1,6 +1,7 @@
 @import "../../../styles//variables.scss";
 .container {
   width: 100%;
+  margin-bottom: 1rem;
   .label {
     p {
       margin: 0;
@@ -11,6 +12,7 @@
     border-radius: 5px;
     border: 1px solid $color-grey-ligtest;
     padding: 6px;
+    position: relative;
     &:hover {
       border: 1px solid $color-green;
     }
@@ -19,7 +21,24 @@
       box-shadow: 0px 0px 2px $color-green;
       outline: none;
     }
+
+    .error_input {
+      width: 100%;
+      border-radius: 5px;
+      border: 1px solid $color-grey-ligtest;
+      padding: 6px;
+      position: relative;
+      &:hover {
+        border: 1px solid red;
+      }
+      &:focus {
+        border: 1px solid red;
+        box-shadow: 0px 0px 2px red;
+        outline: none;
+      }
+    }
   }
   .error {
+    color: red;
   }
 }
