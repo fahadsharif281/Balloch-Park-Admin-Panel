@@ -14,7 +14,7 @@ export const Input = ({
   ...props
 }: IInputProps) => {
   let labelClass = classes.label;
-  let inputClass = classes.input;
+  let inputClass = error ? classes.error_input : classes.input;
   let errorClass = classes.error;
   let imageClass = classes.img;
   let containerClass = classes.container;
@@ -29,7 +29,7 @@ export const Input = ({
   }
 
   if (inputClassName) {
-    inputClass = `${inputClass} ${labelClassName}`;
+    inputClass = `${inputClass} ${inputClassName}`;
   }
   if (containerClassName) {
     containerClass = `${containerClass} ${containerClassName}`;

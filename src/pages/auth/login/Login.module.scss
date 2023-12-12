@@ -5,47 +5,50 @@
   background-position: center center;
   width: 100%;
   height: calc(100vh);
-}
+  .body {
+    margin-top: 6rem;
+  }
 
-.cardbody {
-  padding: 10px 24px;
-  .img {
-    position: absolute;
-    width: 36px;
+  .cardbody {
+    padding: 23px;
+    .img {
+      position: absolute;
+      width: 36px;
 
-    border-radius: 4px;
-    right: 25px;
-    padding: 7px;
-    cursor: pointer;
-    &:hover {
-      background-color: $color-grey-lightest;
+      border-radius: 4px;
+      right: 25px;
+      padding: 7px;
+      cursor: pointer;
+      &:hover {
+        background-color: $color-grey-lightest;
+      }
     }
   }
-}
-.btn {
-  background-color: $color-green;
-  border: none;
-  padding: 8px 22px;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
-    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
-    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  &:hover {
+  .btn {
     background-color: $color-green;
+    border: none;
+    padding: 8px 22px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+      box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+      border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+      color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    &:hover {
+      background-color: $color-green;
+    }
+    &:active {
+      background-color: $color-grey-light !important;
+      transform: scale(0.9) translateZ(0px);
+    }
   }
-  &:active {
-    background-color: $color-grey-light !important;
-    transform: scale(0.9) translateZ(0px);
-  }
-}
-p a {
-  color: $color-light-blue;
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
+  p a {
     color: $color-light-blue;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+      color: $color-light-blue;
+    }
   }
-}
-Form {
-  color: $color-grey-light;
+  Form {
+    color: $color-grey-light;
+  }
 }

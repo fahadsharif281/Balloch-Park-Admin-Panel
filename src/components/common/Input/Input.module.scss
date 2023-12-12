@@ -21,24 +21,24 @@
       box-shadow: 0px 0px 2px $color-green;
       outline: none;
     }
-
-    .error_input {
-      width: 100%;
-      border-radius: 5px;
-      border: 1px solid $color-grey-ligtest;
-      padding: 6px;
-      position: relative;
-      &:hover {
-        border: 1px solid red;
-      }
-      &:focus {
-        border: 1px solid red;
-        box-shadow: 0px 0px 2px red;
-        outline: none;
-      }
+  }
+  .error_input {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid $color-red;
+    padding: 6px;
+    position: relative;
+    &:hover {
+      border: 1px solid $color-red-light !important ;
+    }
+    &:focus {
+      border: 1px solid $color-red !important ;
+      box-shadow: 0px 0px 2px $color-red !important ;
+      outline: none;
     }
   }
   .error {
-    color: red;
+    color: $color-red;
+    font-size: 0.75rem;
   }
 }

@@ -1,6 +1,6 @@
 import classes from "./Login.module.scss";
 import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../../redux/reducers/userReducer";
@@ -9,6 +9,7 @@ import { useState } from "react";
 import * as Yup from "yup";
 import view from "../../../assets/png/view.png";
 import hide from "../../../assets/png/hide.png";
+import CustomButton from "../../../components/common/Button/Button";
 
 const Login = (): JSX.Element => {
   const [show, setShow] = useState(false);
@@ -29,8 +30,8 @@ const Login = (): JSX.Element => {
       navigate("/home");
     },
     validationSchema: Yup.object().shape({
-      email: Yup.string().email("Invalid email").required("Required"),
-      password: Yup.string().min(8).required("Required!"),
+      email: Yup.string().email("Invalid email").required("Email is required"),
+      password: Yup.string().min(8).required("Password is required"),
     }),
   });
   return (
@@ -39,12 +40,12 @@ const Login = (): JSX.Element => {
         <Container>
           <Row className="vh-100 d-flex justify-content-center align-items-center">
             <Col md={8} lg={5} xs={12}>
-              <Card className="shadow">
-                <Card.Body className={classes.cardbody}>
-                  <div className="mb-3 mt-4 ">
-                    <h3 className="d-flex justify-content-start align-items-center mb-5 ">
+              <div className={classes.body}>
+                <Card className="shadow  mb-0 mt-5">
+                  <Card.Body className={classes.cardbody}>
+                    <h4 className="d-flex justify-content-start align-items-center mb-4 ">
                       Login
-                    </h3>
+                    </h4>
                     <div className="mb-3">
                       <Form onSubmit={() => formik.handleSubmit()}>
                         {/* <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -100,17 +101,19 @@ const Login = (): JSX.Element => {
                           controlId="formBasicCheckbox"
                         >
                           <p className="small d-flex justify-content-end">
-                            <a href="#!">Forgot password?</a>
+                            <NavLink to="/forgetPassword">
+                              Forgot password?
+                            </NavLink>
                           </p>
                         </Form.Group>
                         <div className="d-grid">
-                          <Button className={classes.btn}>Login</Button>
+                          <CustomButton text="Login" />{" "}
                         </div>
                       </Form>
                     </div>
-                  </div>
-                </Card.Body>
-              </Card>
+                  </Card.Body>
+                </Card>
+              </div>
             </Col>
           </Row>
         </Container>
