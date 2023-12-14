@@ -3,15 +3,17 @@
   width: 100%;
   margin-bottom: 1rem;
   .label {
-    p {
-      margin: 0;
-    }
+    margin-bottom: 8px;
+    font-size: 0.875rem;
+    line-height: 1.4375em;
+    font-family: "Public Sans", sans-serif;
+    font-weight: 400;
   }
   .input {
     width: 100%;
     border-radius: 5px;
     border: 1px solid $color-grey-ligtest;
-    padding: 6px;
+    padding: 8.5px 14px 10.5px 12px;
     position: relative;
     &:hover {
       border: 1px solid $color-green;
@@ -26,7 +28,7 @@
     width: 100%;
     border-radius: 5px;
     border: 1px solid $color-red;
-    padding: 6px;
+    padding: 8.5px 14px 10.5px 12px;
     position: relative;
     &:hover {
       border: 1px solid $color-red-light !important ;
@@ -40,5 +42,10 @@
   .error {
     color: $color-red;
     font-size: 0.75rem;
+  }
+  ::placeholder {
+    color: $color-grey-light;
+    font-size: smaller;
+    opacity: 0.7;
   }
 }

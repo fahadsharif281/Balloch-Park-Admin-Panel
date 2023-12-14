@@ -37,20 +37,21 @@ const ForgetPassword = (): JSX.Element => {
             <Col md={8} lg={5} xs={12}>
               <div className={classes.body}>
                 {" "}
-                <Card className="shadow">
+                <Card className="shadow rounded-3">
                   <Card.Body className={classes.cardbody}>
-                    <div className="mb-3 mt-4 ">
+                    <div>
                       <div className="d-flex justify-content-between align-items-center mb-4">
-                        <h4 className="mb-0">Forget Password</h4>
+                        <h3 className="mb-0">Forget Password</h3>
                         <p className=" small mb-0">
                           <NavLink to="/">Back</NavLink>
                         </p>
                       </div>
-                      <div className="mb-3">
+                      <div>
                         <Form onSubmit={() => formik.handleSubmit()}>
                           <Input
                             type="email"
                             label="Enter Email Address for OTP Verification"
+                            placeholder="Enter email address"
                             error={
                               formik.touched.email && formik.errors.email
                                 ? formik.errors.email

@@ -41,12 +41,12 @@ const Login = (): JSX.Element => {
           <Row className="vh-100 d-flex justify-content-center align-items-center">
             <Col md={8} lg={5} xs={12}>
               <div className={classes.body}>
-                <Card className="shadow  mb-0 mt-5">
+                <Card className="shadow rounded-3 ">
                   <Card.Body className={classes.cardbody}>
-                    <h4 className="d-flex justify-content-start align-items-center mb-4 ">
+                    <h3 className="d-flex justify-content-start align-items-center mb-4 ">
                       Login
-                    </h4>
-                    <div className="mb-3">
+                    </h3>
+                    <div>
                       <Form onSubmit={() => formik.handleSubmit()}>
                         {/* <Form.Group className="mb-3" controlId="formBasicEmail">
                                                     <Form.Label className="text-center">
@@ -58,6 +58,7 @@ const Login = (): JSX.Element => {
                         <Input
                           type="email"
                           label="Email Address"
+                          placeholder="Enter email address"
                           error={
                             formik.touched.email && formik.errors.email
                               ? formik.errors.email
@@ -77,6 +78,7 @@ const Login = (): JSX.Element => {
                           }}
                           type={show ? "text" : "password"}
                           label="Password"
+                          placeholder="Enter password"
                           error={
                             formik.touched.password && formik.errors.password
                               ? formik.errors.password
