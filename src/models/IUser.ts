@@ -1,9 +1,14 @@
 export interface IUser {
-    user: User,
-    authToken: string
+  user: User | "";
+  isLoading: boolean;
+  error: string | unknown;
 }
 
-interface User {
-    email: string,
-    password: string
+export interface User {
+  email: string;
+  token: string;
+}
+export interface IUserServiceParams {
+  email: string;
+  password?: string;
 }

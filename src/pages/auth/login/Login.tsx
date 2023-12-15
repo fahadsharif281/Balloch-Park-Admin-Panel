@@ -3,31 +3,33 @@ import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
-import { setUser } from "../../../redux/reducers/userReducer";
+import { ThunkDispatch } from "@reduxjs/toolkit";
 import { Input } from "../../../components/common/Input/Input";
 import { useState } from "react";
 import * as Yup from "yup";
 import view from "../../../assets/png/view.png";
 import hide from "../../../assets/png/hide.png";
 import CustomButton from "../../../components/common/Button/Button";
+import { postLoginUserAsync } from "../../../redux/actions/UserLogin.action";
 
-const Login = (): JSX.Element => {
+export const Login = (): JSX.Element => {
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<any>();
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
     },
     onSubmit: (values) => {
+      console.log("values:", values);
       const user = {
         email: values.email,
         password: values.password,
       };
 
-      dispatch(setUser(user));
-      navigate("/home");
+      dispatch(postLoginUserAsync(user));
+      // navigate("/home");
     },
     validationSchema: Yup.object().shape({
       email: Yup.string().email("Invalid email").required("Email is required"),
@@ -47,7 +49,12 @@ const Login = (): JSX.Element => {
                       Login
                     </h3>
                     <div>
-                      <Form onSubmit={() => formik.handleSubmit()}>
+                      <Form
+                        onSubmit={(e) => {
+                          e.preventDefault();
+                          formik.handleSubmit(e);
+                        }}
+                      >
                         {/* <Form.Group className="mb-3" controlId="formBasicEmail">
                                                     <Form.Label className="text-center">
                                                         Email address
@@ -109,7 +116,7 @@ const Login = (): JSX.Element => {
                           </p>
                         </Form.Group>
                         <div className="d-grid">
-                          <CustomButton text="Login" />{" "}
+                          <CustomButton type="submit" text="Login" />{" "}
                         </div>
                       </Form>
                     </div>
@@ -123,4 +130,3 @@ const Login = (): JSX.Element => {
     </>
   );
 };
-export default Login;

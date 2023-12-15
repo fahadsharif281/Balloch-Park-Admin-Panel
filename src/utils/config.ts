@@ -1,25 +1,32 @@
 // import {store} from '@redux/store';
-import axios from 'axios';
-import { store } from '../redux/store';
-import { BASE_URL } from './helpers';
+import axios from "axios";
+import { persistor, store } from "../redux/store";
+import { BASE_URL } from "./helpers";
 
 const HTTP_CLIENT = axios.create({
-    baseURL: BASE_URL,
+  baseURL: BASE_URL,
 });
 
 HTTP_CLIENT.interceptors.request.use(
-    config => {
-        const accessToken = store.getState().root.user.authToken;
-        if (!!accessToken) {
-            config.headers.common = {
-                Authorization: `Bearer ${accessToken}`
-            }
-        }
-        return config;
-    },
-    error => {
-        Promise.reject(error.response || error.message);
+  async (config) => {
+    try {
+      config.headers["Content-Type"] = "application/json";
+      // const state = store.getState();
+      // const accessToken = state?.root?.user?.user;
+
+      // if (accessToken) {
+      //     config.headers.common['Authorization'] = `Bearer ${accessToken}`;
+      // }
+    } catch (error) {
+      // Handle any potential errors while accessing state or setting headers
+      console.error("Error setting Authorization header:", error);
     }
+
+    return config;
+  },
+  (error) => {
+    Promise.reject(error.response || error.message);
+  }
 );
 
 //" for handling response "//
@@ -70,6 +77,5 @@ HTTP_CLIENT.interceptors.request.use(
 //       return Promise.reject(error.response || error.message);
 //   }
 // );
-
 
 export { HTTP_CLIENT };

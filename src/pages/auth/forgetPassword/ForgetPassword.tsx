@@ -4,11 +4,11 @@ import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
-import { setUser } from "../../../redux/reducers/userReducer";
 import { Input } from "../../../components/common/Input/Input";
 import { useState } from "react";
 import * as Yup from "yup";
 import CustomButton from "../../../components/common/Button/Button";
+import { forgetPasswordService } from "../../../services/auth/Auth";
 
 const ForgetPassword = (): JSX.Element => {
   const navigate = useNavigate();
@@ -18,12 +18,13 @@ const ForgetPassword = (): JSX.Element => {
       email: "",
     },
     onSubmit: (values) => {
-      const user = {
-        email: values.email,
-      };
-
-      dispatch(setUser(user));
-      navigate("/home");
+      forgetPasswordService(values.email)
+        .then((res: any) => {
+          console.log(res);
+        })
+        .catch((err: any) => {
+          console.log(err);
+        });
     },
     validationSchema: Yup.object().shape({
       email: Yup.string().email("Invalid email").required("Email is required"),
@@ -47,7 +48,12 @@ const ForgetPassword = (): JSX.Element => {
                         </p>
                       </div>
                       <div>
-                        <Form onSubmit={() => formik.handleSubmit()}>
+                        <Form
+                          onSubmit={(e) => {
+                            e.preventDefault();
+                            formik.handleSubmit(e);
+                          }}
+                        >
                           <Input
                             type="email"
                             label="Enter Email Address for OTP Verification"
@@ -62,7 +68,7 @@ const ForgetPassword = (): JSX.Element => {
                             onBlur={formik.handleBlur("email")}
                           />
                           <div className="d-grid">
-                            <CustomButton text="Submit" />
+                            <CustomButton type="submit" text="Submit" />
                           </div>
                         </Form>
                       </div>
