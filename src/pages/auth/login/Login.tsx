@@ -27,7 +27,10 @@ export const Login = (): JSX.Element => {
         password: values.password,
       };
       dispatch(postLoginUserAsync(credential)).then((response: any) => {
-        if (response.type === "user/postLoginUserAsync/fulfilled") {
+        if (
+          response.type === "user/postLoginUserAsync/fulfilled" &&
+          !response?.payload?.error
+        ) {
           navigate("/home");
         }
       });

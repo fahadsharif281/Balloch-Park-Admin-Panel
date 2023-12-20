@@ -3,25 +3,53 @@ import Footer from "../footer/Footer";
 import Header from "../header/Header";
 import classes from "./Layout.module.scss";
 import { Sidebar } from "../sidebar/Sidebar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useMediaQuery } from "@mui/material";
+import Drawer from "../drawer/Drawer";
 const Layout = (): JSX.Element => {
   const [openMenu, setOpenMenu] = useState(true);
+  const responsiveView = useMediaQuery("(max-width:1000px)");
+  useEffect(() => {
+    if (responsiveView) {
+      setOpenMenu(false);
+    } else {
+      setOpenMenu(true);
+    }
+  }, [responsiveView]);
   const handleToggleMenu = () => {
     setOpenMenu(!openMenu);
   };
+
   return (
     <div className={classes.container}>
       <div className={classes.flex}>
         {openMenu && (
-          <div className={classes.side_bar}>
-            <Sidebar />
-          </div>
+          <>
+            {responsiveView ? (
+              <Drawer openMenu={openMenu} handleToggleMenu={handleToggleMenu} />
+            ) : (
+              <div className={classes.side_bar}>
+                <Sidebar responsiveView={responsiveView} />
+              </div>
+            )}
+          </>
         )}
-        <div className={!openMenu ? classes.close_menu : classes.main}>
+
+        <div
+          className={
+            responsiveView
+              ? classes.close_menu
+              : !openMenu
+              ? classes.close_menu
+              : classes.main
+          }
+        >
           <header>
             <div
               className={
-                !openMenu
+                responsiveView
+                  ? `${classes.close_menu} ${classes.header}`
+                  : !openMenu
                   ? `${classes.close_menu} ${classes.header}`
                   : classes.header
               }
