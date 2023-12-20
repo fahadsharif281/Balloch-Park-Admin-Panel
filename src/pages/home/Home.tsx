@@ -1,7 +1,3 @@
-// const Home = (): JSX.Element => {
-//   return <></>;
-// };
-// export default Home;
 import React from "react";
 
 const Home = () => {

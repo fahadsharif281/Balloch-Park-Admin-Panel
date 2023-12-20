@@ -2,7 +2,7 @@ import classes from "./Login.module.scss";
 import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ThunkDispatch } from "@reduxjs/toolkit";
 import { Input } from "../../../components/common/Input/Input";
 import { useState } from "react";
@@ -10,7 +10,7 @@ import * as Yup from "yup";
 import view from "../../../assets/png/view.png";
 import hide from "../../../assets/png/hide.png";
 import CustomButton from "../../../components/common/Button/Button";
-import { postLoginUserAsync } from "../../../redux/actions/UserLogin.action";
+import { postLoginUserAsync } from "../../../redux/actions/auth.action";
 
 export const Login = (): JSX.Element => {
   const [show, setShow] = useState(false);
@@ -21,15 +21,16 @@ export const Login = (): JSX.Element => {
       email: "",
       password: "",
     },
-    onSubmit: (values) => {
-      console.log("values:", values);
-      const user = {
+    onSubmit: async (values) => {
+      const credential = {
         email: values.email,
         password: values.password,
       };
-
-      dispatch(postLoginUserAsync(user));
-      // navigate("/home");
+      dispatch(postLoginUserAsync(credential)).then((response: any) => {
+        if (response.type === "user/postLoginUserAsync/fulfilled") {
+          navigate("/home");
+        }
+      });
     },
     validationSchema: Yup.object().shape({
       email: Yup.string().email("Invalid email").required("Email is required"),

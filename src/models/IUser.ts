@@ -5,8 +5,12 @@ export interface IUser {
 }
 
 export interface User {
-  email: string;
-  token: string;
+  message?: string;
+  token?: string;
+  _id?: string;
+  email?: string;
+  password?: string;
+  error?: boolean;
 }
 export interface IUserServiceParams {
   email: string;

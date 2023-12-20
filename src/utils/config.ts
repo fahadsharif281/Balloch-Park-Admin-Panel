@@ -1,33 +1,43 @@
 // import {store} from '@redux/store';
-import axios from "axios";
-import { persistor, store } from "../redux/store";
+import axios, { AxiosInstance } from "axios";
 import { BASE_URL } from "./helpers";
 
-const HTTP_CLIENT = axios.create({
+const HTTP_CLIENT: AxiosInstance = axios.create({
   baseURL: BASE_URL,
 });
 
-HTTP_CLIENT.interceptors.request.use(
-  async (config) => {
-    try {
-      config.headers["Content-Type"] = "application/json";
-      // const state = store.getState();
-      // const accessToken = state?.root?.user?.user;
+const initializeConfig = (store: any) => {
+  setupAxios(store);
+};
 
-      // if (accessToken) {
-      //     config.headers.common['Authorization'] = `Bearer ${accessToken}`;
-      // }
-    } catch (error) {
-      // Handle any potential errors while accessing state or setting headers
-      console.error("Error setting Authorization header:", error);
+const setupAxios = (store: any) => {
+  HTTP_CLIENT.interceptors.request.use(
+    (config: any) => {
+      const user = store.getState().root.user;
+      if (user) {
+        config.headers.Authorization = `Bearer ${user}`;
+      }
+      return config;
+    },
+    (err: any) => {
+      Promise.reject(err);
     }
+  );
 
-    return config;
-  },
-  (error) => {
-    Promise.reject(error.response || error.message);
-  }
-);
+  HTTP_CLIENT.interceptors.response.use(
+    (sucs) => {
+      return sucs;
+    },
+    (err) => {
+      if (err?.response?.status === 401 || err?.status === 401) {
+        let { user } = store.getState().root?.user;
+      }
+
+      Promise.reject(err);
+    }
+  );
+};
+export { HTTP_CLIENT, initializeConfig };
 
 //" for handling response "//
 
@@ -77,5 +87,3 @@ HTTP_CLIENT.interceptors.request.use(
 //       return Promise.reject(error.response || error.message);
 //   }
 // );
-
-export { HTTP_CLIENT };
