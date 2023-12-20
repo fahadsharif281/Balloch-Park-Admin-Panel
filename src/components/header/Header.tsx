@@ -3,8 +3,16 @@ import { Button } from "react-bootstrap";
 import avatar from "../../assets/png/personAvatar.png";
 import openMenuImage from "../../assets/png/openMenu.png";
 import closeMenuImage from "../../assets/png/closeMenu.png";
-import { MenuItem, MenuList } from "@mui/material";
+import {
+  Divider,
+  ListItemIcon,
+  ListItemText,
+  MenuItem,
+  MenuList,
+} from "@mui/material";
 import { useEffect, useRef, useState } from "react";
+import { EditSvg, LogoutSvg } from "../../assets/svg/SvgImges";
+import { useSelector } from "react-redux";
 
 const Header = ({
   handleToggleMenu = () => {},
@@ -15,6 +23,7 @@ const Header = ({
 }): JSX.Element => {
   const [dropDownMenu, setDropDownMenu] = useState(false);
   const containerRef: any = useRef(null);
+  const { user } = useSelector((state: any) => state.root.user);
   const handleDropDownMenu = () => {
     setDropDownMenu(!dropDownMenu);
   };
@@ -65,9 +74,39 @@ const Header = ({
           {dropDownMenu && (
             <div className={classes.menu_list}>
               <MenuList>
-                <MenuItem>Profile</MenuItem>
-                <MenuItem>My account</MenuItem>
-                <MenuItem>Logout</MenuItem>
+                <MenuItem selected className={classes.menu_item}>
+                  <div className={classes.list_item}>
+                    <div className={classes.user_avatar}>
+                      <img src={avatar} />
+                      <div>
+                        <div>Admin</div>
+                        <div className={classes.email}>{user?.email}</div>
+                      </div>
+                    </div>
+                  </div>
+                </MenuItem>
+                <div className={classes.logout_avatar}>
+                  <LogoutSvg width="18px" height="18px" />
+                </div>
+                <Divider color="black" />
+                <MenuItem>
+                  {" "}
+                  <ListItemIcon>
+                    <EditSvg />
+                  </ListItemIcon>
+                  <ListItemText>
+                    <span className={classes.text}> Edit Password</span>
+                  </ListItemText>
+                </MenuItem>
+                <MenuItem>
+                  {" "}
+                  <ListItemIcon>
+                    <LogoutSvg width="1em" height="1em" />
+                  </ListItemIcon>
+                  <ListItemText className={classes.text}>
+                    <span className={classes.text}>Logout</span>
+                  </ListItemText>
+                </MenuItem>
               </MenuList>
             </div>
           )}
