@@ -6,8 +6,12 @@ import { Sidebar } from "../sidebar/Sidebar";
 import { useEffect, useState } from "react";
 import { useMediaQuery } from "@mui/material";
 import Drawer from "../drawer/Drawer";
+import { getAllRoutesOfSideBar } from "../../services/general.services";
+import { useDispatch } from "react-redux";
+import { getAllUserRoutes } from "../../redux/actions/routes.action";
 const Layout = (): JSX.Element => {
   const [openMenu, setOpenMenu] = useState(true);
+  const dispatch = useDispatch<any>();
   const responsiveView = useMediaQuery("(max-width:1000px)");
   useEffect(() => {
     if (responsiveView) {
@@ -16,6 +20,10 @@ const Layout = (): JSX.Element => {
       setOpenMenu(true);
     }
   }, [responsiveView]);
+
+  useEffect(() => {
+    dispatch(getAllUserRoutes());
+  }, []);
   const handleToggleMenu = () => {
     setOpenMenu(!openMenu);
   };

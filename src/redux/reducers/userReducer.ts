@@ -1,11 +1,14 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { IUser } from "../../models/IUser";
 import { postLoginUserAsync } from "../actions/auth.action";
+import { getAllUserRoutes } from "../actions/routes.action";
 
 const initialState: IUser = {
   user: "",
   isLoading: false,
   error: "",
+  routes: [],
+  routesLoading: false,
 };
 
 export const userSlice = createSlice({
@@ -27,7 +30,22 @@ export const userSlice = createSlice({
       })
       .addCase(postLoginUserAsync.rejected, (state, action: any) => {
         state.isLoading = false;
-        state.error = action?.payload?.message || "An error occurred";
+        state.error = action?.payload
+          ? action?.payload
+          : action?.payload?.message
+          ? action?.payload?.message
+          : "An error occurred";
+      })
+      .addCase(getAllUserRoutes.fulfilled, (state, action) => {
+        state.routes = [...action?.payload?.result];
+        state.routesLoading = false;
+      })
+      .addCase(getAllUserRoutes.rejected, (state, action) => {
+        state.routes = [];
+        state.routesLoading = false;
+      })
+      .addCase(getAllUserRoutes.pending, (state) => {
+        state.routesLoading = true;
       });
   },
 });

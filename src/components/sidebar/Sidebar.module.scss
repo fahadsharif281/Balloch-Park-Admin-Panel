@@ -1,4 +1,6 @@
 .container {
+    // height: 100vh;
+
     .img {
         padding: 8px 24px;
         // position: fixed;
@@ -7,7 +9,10 @@
     .menu_list {
         padding-top: 1rem;
 
-        .menu_item {
+        .active_menu_item {
+            text-decoration: none;
+            color: black;
+            cursor: pointer;
             font-size: 0.875rem;
             display: flex;
             justify-content: flex-start;
@@ -15,6 +20,26 @@
             background-color: rgb(245, 245, 245);
             border-right: 4px solid green;
             padding: 8px 16px;
+
+            img {
+                width: 40px;
+                padding: 10px;
+            }
+        }
+
+        .menu_item {
+            text-decoration: none;
+            color: black;
+            cursor: pointer;
+            font-size: 0.875rem;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 8px 16px;
+
+            &:hover {
+                background-color: rgb(245, 245, 245);
+            }
 
             img {
                 width: 40px;

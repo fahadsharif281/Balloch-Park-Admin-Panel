@@ -3,7 +3,6 @@ import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
-import { ThunkDispatch } from "@reduxjs/toolkit";
 import { Input } from "../../../components/common/Input/Input";
 import { useState } from "react";
 import * as Yup from "yup";
@@ -25,15 +24,9 @@ export const Login = (): JSX.Element => {
       const credential = {
         email: values.email,
         password: values.password,
+        navigate: navigate,
       };
-      dispatch(postLoginUserAsync(credential)).then((response: any) => {
-        if (
-          response.type === "user/postLoginUserAsync/fulfilled" &&
-          !response?.payload?.error
-        ) {
-          navigate("/home");
-        }
-      });
+      dispatch(postLoginUserAsync(credential));
     },
     validationSchema: Yup.object().shape({
       email: Yup.string().email("Invalid email").required("Email is required"),
