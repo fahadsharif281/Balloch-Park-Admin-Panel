@@ -74,11 +74,6 @@ const Header = ({
         password: values.password,
         newPassword: values.newPassword,
       };
-      // dispatch(postLoginUserAsync(credential)).then((response: any) => {
-      //   if (response.type === "user/postLoginUserAsync/fulfilled") {
-      //     navigate("/home");
-      //   }
-      // });
     },
     validationSchema: Yup.object().shape({
       email: Yup.string().email("Invalid email").required("Email is required"),
