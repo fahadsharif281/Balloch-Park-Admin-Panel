@@ -9,7 +9,7 @@ export const postLoginUserAsync = createAsyncThunk<any, any, any>(
     try {
       const response = await loginService(email, password); // Assuming fetchUser returns a Promise
       if (response !== undefined && !response?.data?.error) {
-        navigate("/home");
+        navigate("/dashboard");
         return response.data;
       } else {
         return rejectWithValue(response?.data);
