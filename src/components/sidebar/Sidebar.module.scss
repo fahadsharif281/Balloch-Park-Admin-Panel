@@ -1,6 +1,25 @@
 .container {
     .img {
         padding: 8px 24px;
-        position: fixed;
+        // position: fixed;
+    }
+
+    .menu_list {
+        padding-top: 1rem;
+
+        .menu_item {
+            font-size: 0.875rem;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            background-color: rgb(245, 245, 245);
+            border-right: 4px solid green;
+            padding: 8px 16px;
+
+            img {
+                width: 40px;
+                padding: 10px;
+            }
+        }
     }
 }

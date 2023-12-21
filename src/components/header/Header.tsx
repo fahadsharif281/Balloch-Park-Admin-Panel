@@ -11,7 +11,12 @@ import {
   MenuList,
 } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
-import { EditSvg, LogoutSvg } from "../../assets/svg/SvgImges";
+import {
+  CloseMenu,
+  EditSvg,
+  LogoutSvg,
+  OpenMenu,
+} from "../../assets/svg/SvgImges";
 import { useSelector } from "react-redux";
 import Modall from "../common/Modal/Modal";
 import { useFormik } from "formik";
@@ -89,11 +94,7 @@ const Header = ({
             onClick={handleToggleMenu}
             className={`${classes.button} ${classes.menu}`}
           >
-            {openMenu ? (
-              <img src={openMenuImage} width="100%" height="100%" />
-            ) : (
-              <img src={closeMenuImage} width="100%" height="100%" />
-            )}
+            {openMenu ? <CloseMenu /> : <OpenMenu />}
           </Button>
         </div>
         <div className={classes.menu_drop_down} ref={containerRef}>
