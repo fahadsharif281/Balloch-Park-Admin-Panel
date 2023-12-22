@@ -6,10 +6,24 @@ import ForgetPassword from "../pages/auth/forgetPassword/ForgetPassword";
 import { useRoutes } from "../utils/hooks/useRoutes";
 import Protected from "./Protected";
 import Public from "./Public";
+
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 const Routes = (): JSX.Element => {
   const { userRoutes } = useRoutes();
   return (
     <>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        theme="light"
+      />
       <ReactRoutes>
         <Route element={<Public />}>
           <Route index path="/" element={<Login />} />
@@ -17,7 +31,7 @@ const Routes = (): JSX.Element => {
         </Route>
         <Route element={<Protected />}>
           <Route element={<Layout />}>
-            {userRoutes.map((item) => {
+            {userRoutes?.map((item) => {
               return (
                 <>
                   <Route path={item?.to} element={<item.component />} />

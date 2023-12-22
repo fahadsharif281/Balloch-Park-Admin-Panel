@@ -5,7 +5,7 @@ import dashboardImg from "../../assets/png/dashboard.png";
 
 export const useRoutes = () => {
   const { routes } = useSelector((state: any) => state.root.user);
-  const mergeUserRoutes = routes.map((item: any, index: number) => ({
+  const mergeUserRoutes = routes?.map((item: any, index: number) => ({
     ...item,
     ...userRoutesAll[index],
   }));

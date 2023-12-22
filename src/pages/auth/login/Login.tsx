@@ -52,13 +52,6 @@ export const Login = (): JSX.Element => {
                           formik.handleSubmit(e);
                         }}
                       >
-                        {/* <Form.Group className="mb-3" controlId="formBasicEmail">
-                                                    <Form.Label className="text-center">
-                                                        Email address
-                                                    </Form.Label>
-                                                    <Form.Control onChange={formik.handleChange('email')} value={formik.values.email} type="email" placeholder="Enter email" />
-                                                </Form.Group> */}
-
                         <Input
                           type="email"
                           label="Email Address"
@@ -93,15 +86,6 @@ export const Login = (): JSX.Element => {
                           onBlur={formik.handleBlur("password")}
                           imageClassName={classes.img}
                         />
-
-                        {/* <Form.Group
-                                                    className="mb-3"
-                                                    controlId="formBasicPassword"
-                                                >
-                                                    <Form.Label>Password</Form.Label>
-                                                    <Form.Control onChange={formik.handleChange('password')} value={formik.values.password} type="password" placeholder="Password" />
-                                                    
-                                                </Form.Group> */}
                         <Form.Group
                           className="mb-3"
                           controlId="formBasicCheckbox"
