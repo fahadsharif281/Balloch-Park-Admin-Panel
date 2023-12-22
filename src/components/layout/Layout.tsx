@@ -34,7 +34,11 @@ const Layout = (): JSX.Element => {
         {openMenu && (
           <>
             {responsiveView ? (
-              <Drawer openMenu={openMenu} handleToggleMenu={handleToggleMenu} />
+              <Drawer
+                responsiveView={responsiveView}
+                openMenu={openMenu}
+                handleToggleMenu={handleToggleMenu}
+              />
             ) : (
               <div className={classes.side_bar}>
                 <Sidebar responsiveView={responsiveView} />

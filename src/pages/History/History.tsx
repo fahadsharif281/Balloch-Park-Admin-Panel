@@ -1,7 +1,14 @@
 import React from "react";
+import DetailCard from "../../components/card/DetailCard";
 
 const History = () => {
-  return <div>History</div>;
+  return (
+    <>
+      <div>
+        <DetailCard title="History" />
+      </div>
+    </>
+  );
 };
 
 export default History;

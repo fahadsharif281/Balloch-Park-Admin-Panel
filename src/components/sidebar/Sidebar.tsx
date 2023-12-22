@@ -9,8 +9,19 @@ import Dashboard from "../../pages/Dashboard/Dashboard";
 import { useRoutes } from "../../utils/hooks/useRoutes";
 
 const baseURL = process.env.REACT_APP_BASE_URL;
-export const Sidebar = ({ responsiveView }: { responsiveView?: boolean }) => {
+export const Sidebar = ({
+  responsiveView,
+  handleToggleMenu = () => {},
+}: {
+  responsiveView?: boolean;
+  handleToggleMenu?: () => void;
+}) => {
   const { userRoutes } = useRoutes();
+  const handleClose = () => {
+    if (responsiveView) {
+      handleToggleMenu();
+    }
+  };
   return (
     <>
       <div className={classes.container}>
@@ -32,6 +43,7 @@ export const Sidebar = ({ responsiveView }: { responsiveView?: boolean }) => {
                 className={({ isActive }) =>
                   isActive ? classes.active_menu_item : classes.menu_item
                 }
+                onClick={handleClose}
               >
                 <div>
                   <img src={src} />

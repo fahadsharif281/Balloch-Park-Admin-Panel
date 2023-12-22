@@ -7,9 +7,11 @@ import logo from "../../assets/jpg/sideBarLogo.jpeg";
 const Drawer = ({
   handleToggleMenu = () => {},
   openMenu,
+  responsiveView,
 }: {
   handleToggleMenu: () => void;
   openMenu: boolean;
+  responsiveView: boolean;
 }): JSX.Element => {
   return (
     <>
@@ -20,7 +22,10 @@ const Drawer = ({
         onOpen={handleToggleMenu}
       >
         <div>
-          <Sidebar />
+          <Sidebar
+            responsiveView={responsiveView}
+            handleToggleMenu={handleToggleMenu}
+          />
         </div>
       </SwipeableDrawer>
     </>
