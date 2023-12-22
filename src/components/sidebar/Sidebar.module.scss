@@ -1,9 +1,9 @@
 .container {
-    // height: 100vh;
+    height: 100vh;
 
     .img {
         padding: 8px 24px;
-        // position: fixed;
+        box-sizing: border-box;
     }
 
     .menu_list {

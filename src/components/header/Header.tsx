@@ -25,6 +25,7 @@ import { Input } from "../common/Input/Input";
 import view from "../../assets/png/view.png";
 import hide from "../../assets/png/hide.png";
 import CustomButton from "../common/Button/Button";
+import useLogout from "../../utils/hooks/useLogout";
 
 const Header = ({
   handleToggleMenu = () => {},
@@ -36,6 +37,7 @@ const Header = ({
   const [dropDownMenu, setDropDownMenu] = useState(false);
   const containerRef: any = useRef(null);
   const { user } = useSelector((state: any) => state.root.user);
+  const { logout } = useLogout();
   const handleDropDownMenu = () => {
     setDropDownMenu(!dropDownMenu);
   };
@@ -81,6 +83,10 @@ const Header = ({
       newPassword: Yup.string().min(8).required("Password is required"),
     }),
   });
+
+  const handleLogout = () => {
+    logout();
+  };
   return (
     <>
       <div className={classes.container}>
@@ -117,7 +123,7 @@ const Header = ({
                     </div>
                   </div>
                 </MenuItem>
-                <div className={classes.logout_avatar}>
+                <div onClick={handleLogout} className={classes.logout_avatar}>
                   <LogoutSvg width="18px" height="18px" />
                 </div>
                 <Divider color="black" />
@@ -130,7 +136,7 @@ const Header = ({
                     <span className={classes.text}> Edit Password</span>
                   </ListItemText>
                 </MenuItem>
-                <MenuItem>
+                <MenuItem onClick={handleLogout}>
                   {" "}
                   <ListItemIcon>
                     <LogoutSvg width="1em" height="1em" />
