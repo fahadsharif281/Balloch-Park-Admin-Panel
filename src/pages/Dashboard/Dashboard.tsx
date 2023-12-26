@@ -26,10 +26,14 @@ const Dashboard = () => {
     <div className={classes.container}>
       <div className={classes.mainheading}>Dashboard</div>
       <div className={classes.card_section}>
-        {cardContent?.map((item) => {
+        {cardContent?.map((item, index) => {
           return (
             <>
-              <Card heading={item.heading} subheading={item.subheading} />
+              <Card
+                id={index.toString()}
+                heading={item.heading}
+                subheading={item.subheading}
+              />
             </>
           );
         })}

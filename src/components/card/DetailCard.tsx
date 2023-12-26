@@ -10,8 +10,11 @@ import {
 import logo from "../../assets/png/dashboard.png";
 
 import { Card, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { IDetailCard } from "../../models/IDetailCard";
+import { useNavigate } from "react-router-dom";
 
-const DetailCard = ({ title }: { title: string }) => {
+const DetailCard = ({ title, addTo }: IDetailCard) => {
+  const navigate = useNavigate();
   const detailsArray = [
     {
       src: logo,
@@ -46,6 +49,11 @@ const DetailCard = ({ title }: { title: string }) => {
           <label className={classes.label}>{title}</label>
           <div>
             <CustomButton
+              onClick={() => {
+                if (addTo) {
+                  navigate(addTo);
+                }
+              }}
               buttonClassName={classes.button_class}
               text={
                 <>

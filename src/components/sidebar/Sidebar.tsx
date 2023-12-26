@@ -3,7 +3,7 @@ import logo from "../../assets/jpg/sideBarLogo.jpeg";
 import classes from "./Sidebar.module.scss";
 import dashboard from "../../assets/png/dashboard.png";
 import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { userRoutesAll } from "../../router/AllRoutes";
 import Dashboard from "../../pages/Dashboard/Dashboard";
 import { useRoutes } from "../../utils/hooks/useRoutes";
@@ -17,6 +17,7 @@ export const Sidebar = ({
   handleToggleMenu?: () => void;
 }) => {
   const { userRoutes } = useRoutes();
+  const navigate = useNavigate();
   const handleClose = () => {
     if (responsiveView) {
       handleToggleMenu();
@@ -27,19 +28,24 @@ export const Sidebar = ({
       <div className={classes.container}>
         <div className={classes.img}>
           <img
+            onClick={(e) => {
+              e.preventDefault();
+              navigate("/");
+            }}
             src={logo}
             width={responsiveView ? "200px" : "235px"}
             height="100%"
           />
         </div>
         <div className={classes.menu_list}>
-          {userRoutes?.map((items) => {
+          {userRoutes?.map((items: any, index: number) => {
             const src = items?.image.includes("base64")
               ? items?.image
               : `${baseURL}/${items?.image}`;
             return (
               <NavLink
-                to={items?.to}
+                id={`${index}`}
+                to={items.to}
                 className={({ isActive }) =>
                   isActive ? classes.active_menu_item : classes.menu_item
                 }

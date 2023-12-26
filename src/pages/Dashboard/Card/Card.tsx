@@ -3,9 +3,11 @@ import classes from "./Card.module.scss";
 const Card = ({
   heading,
   subheading,
+  id,
 }: {
   heading: string;
   subheading: string;
+  id: string;
 }) => {
   return (
     <div className={classes.container}>

@@ -5,7 +5,7 @@ const CarParking = () => {
   return (
     <>
       <div>
-        <DetailCard title="Car Parking" />
+        <DetailCard title="Car Parking" addTo="/car-parking/add" />
       </div>
     </>
   );

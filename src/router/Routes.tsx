@@ -35,6 +35,18 @@ const Routes = (): JSX.Element => {
               return (
                 <>
                   <Route path={item?.to} element={<item.component />} />
+                  {item?.edit_to && (
+                    <Route
+                      path={item?.edit_to}
+                      element={<item.edit_component />}
+                    />
+                  )}
+                  {item?.add_to && (
+                    <Route
+                      path={item?.add_to}
+                      element={<item.add_component />}
+                    />
+                  )}
                 </>
               );
             })}
