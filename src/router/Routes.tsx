@@ -6,13 +6,22 @@ import ForgetPassword from "../pages/auth/forgetPassword/ForgetPassword";
 import { useRoutes } from "../utils/hooks/useRoutes";
 import Protected from "./Protected";
 import Public from "./Public";
-
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import { LinearProgress } from "@mui/material";
+import { useSelector } from "react-redux";
+import classes from "./Routes.module.scss";
 const Routes = (): JSX.Element => {
   const { userRoutes } = useRoutes();
+  const { isLoading } = useSelector((state: any) => state.root.location);
+
   return (
     <>
+      {isLoading && (
+        <div className={classes.loader_container}>
+          <LinearProgress className={classes.loader} color="success" />
+        </div>
+      )}
       <ToastContainer
         position="top-center"
         autoClose={5000}
@@ -45,6 +54,12 @@ const Routes = (): JSX.Element => {
                     <Route
                       path={item?.add_to}
                       element={<item.add_component />}
+                    />
+                  )}
+                  {item?.select_location_to && (
+                    <Route
+                      path={item?.select_location_to}
+                      element={<item.select_location_component />}
                     />
                   )}
                 </>

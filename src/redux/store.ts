@@ -4,6 +4,7 @@ import { persistReducer, persistStore } from "redux-persist";
 import userReducer from "./reducers/userReducer";
 import { TypedUseSelectorHook, useSelector } from "react-redux";
 import storage from "redux-persist/lib/storage";
+import locationReducer from "./reducers/locationReducer";
 
 const persistConfig = {
   key: "root",
@@ -13,6 +14,7 @@ const persistConfig = {
 
 const reducers = combineReducers({
   user: userReducer,
+  location: locationReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducers);

@@ -30,7 +30,5 @@ export const useRoutes = () => {
     ...mergeUserRoutes,
   ];
 
-  console.log("userRoutes:", userRoutes);
-
   return { userRoutes };
 };

@@ -5,16 +5,23 @@ import classes from "./AddCarParking.module.scss";
 
 const AddCarParking = () => {
   const breadCrumbsItems = [
-    { name: "Home", to: "/car-parking" },
-    { name: "Add Location", to: "/car-parking/add" },
-    { name: "Select Location", to: "/car-parking", active: true },
+    { name: "Home", to: "/dashboard" },
+    { name: "Add Location", to: "" },
+    { name: "Select Location", to: "/car-parking/select-location" },
+    { name: "Add Details", to: "", active: true },
   ];
+  const handleSubmit = (values: any) => {
+    console.log("submit values:", values);
+  };
   return (
     <>
       <div className={classes.container}>
         <BreadCrumbs items={breadCrumbsItems} />
         <div className={classes.add_form_container}>
-          <AddForm />
+          <AddForm
+            changeLocationTo="/car-parking/select-location"
+            handleSubmit={handleSubmit}
+          />
         </div>
       </div>
     </>

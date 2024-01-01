@@ -1,0 +1,16 @@
+.container {
+    .flex_container {
+        padding-top: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+
+        .heading {
+            font-weight: 700;
+        }
+
+        .btn_container {
+            width: fit-content;
+        }
+    }
+}

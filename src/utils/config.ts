@@ -13,9 +13,9 @@ const initializeConfig = (store: any) => {
 const setupAxios = (store: any) => {
   HTTP_CLIENT.interceptors.request.use(
     (config: any) => {
-      const user = store.getState().root.user;
+      const { user } = store?.getState()?.root?.user;
       if (user) {
-        config.headers.Authorization = `Bearer ${user}`;
+        config.headers.Authorization = `Bearer ${user?.token}`;
       }
       return config;
     },

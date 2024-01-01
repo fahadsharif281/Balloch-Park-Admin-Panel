@@ -2,7 +2,10 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import classes from "./BreadCrumbs.module.scss";
 import { Breadcrumbs, Typography } from "@mui/material";
-import { IBreadCrumbs, IBreadCrumbsItems } from "../../../models/IBreadCrumbs";
+import {
+  IBreadCrumbs,
+  IBreadCrumbsItems,
+} from "../../../models/common/IBreadCrumbs";
 
 const BreadCrumbs = ({ items }: IBreadCrumbs) => {
   return (
