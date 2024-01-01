@@ -1,6 +1,8 @@
 import AddCarParking from "../pages/CarParking/AddCarParking";
 import AddCarParkingSelectLocation from "../pages/CarParking/AddCarParkingSelectLocation";
 import CarParking from "../pages/CarParking/CarParking";
+import EditCarParkingDetails from "../pages/CarParking/EditCarParkingDetails";
+import ViewCarParkingDetails from "../pages/CarParking/ViewCarParkingDetails";
 import AddDangerousWaters from "../pages/DangerousWaters/AddDangerousWaters";
 import AddDangerousWatersSelectLocation from "../pages/DangerousWaters/AddDangerousWatersSelectLocation";
 import DangerousWaters from "../pages/DangerousWaters/DangerousWaters";
@@ -61,8 +63,10 @@ export const userRoutesAll = [
     add_component: AddCarParking,
     select_location_to: "/car-parking/select-location",
     select_location_component: AddCarParkingSelectLocation,
-    edit_to: "/car-parking/edit",
-    edit_component: EntrancesAndExit,
+    edit_to: "/car-parking/edit-details",
+    edit_component: EditCarParkingDetails,
+    view_to: "/car-parking/view-details",
+    view_component: ViewCarParkingDetails,
   },
   {
     to: "/toilets",

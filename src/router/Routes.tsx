@@ -56,6 +56,12 @@ const Routes = (): JSX.Element => {
                       element={<item.add_component />}
                     />
                   )}
+                  {item?.view_to && (
+                    <Route
+                      path={item?.view_to}
+                      element={<item.view_component />}
+                    />
+                  )}
                   {item?.select_location_to && (
                     <Route
                       path={item?.select_location_to}

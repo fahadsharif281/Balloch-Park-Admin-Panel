@@ -13,7 +13,7 @@ import { Card, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { IDetailCard } from "../../models/IDetailCard";
 import { useNavigate } from "react-router-dom";
 
-const DetailCard = ({ title, addTo, results }: IDetailCard) => {
+const DetailCard = ({ title, addTo, viewTo, editTo, results }: IDetailCard) => {
   const navigate = useNavigate();
   const renderTooltip = (name: string, ...props: any) => (
     <Tooltip id="button-tooltip" {...props}>
@@ -72,7 +72,13 @@ const DetailCard = ({ title, addTo, results }: IDetailCard) => {
                       delay={{ show: 100, hide: 100 }}
                       overlay={renderTooltip("Edit")}
                     >
-                      <div>
+                      <div
+                        onClick={() => {
+                          if (editTo) {
+                            navigate(editTo);
+                          }
+                        }}
+                      >
                         <EditIcon />
                       </div>
                     </OverlayTrigger>
@@ -81,7 +87,13 @@ const DetailCard = ({ title, addTo, results }: IDetailCard) => {
                       delay={{ show: 100, hide: 100 }}
                       overlay={renderTooltip("View")}
                     >
-                      <div>
+                      <div
+                        onClick={() => {
+                          if (viewTo) {
+                            navigate(viewTo);
+                          }
+                        }}
+                      >
                         <ViewIcon />
                       </div>
                     </OverlayTrigger>

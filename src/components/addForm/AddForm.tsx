@@ -7,6 +7,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { toBase64 } from "../../utils/helpers";
 import { useNavigate } from "react-router-dom";
+import ImageInput from "../common/ImageInput/ImageInput";
 
 const AddForm = ({
   handleSubmit = () => {},
@@ -52,10 +53,10 @@ const AddForm = ({
         >
           <p className={classes.heading}>Fill all fields to continue</p>
           <p className={classes.title}>Add Car Parking Route</p>
-          <div className={classes.upload_image_container}>
-            <p className={classes.upload_image}>Click to select Image</p>
-            <Input type="file" onChange={handleFileUpload} />
-          </div>
+          <ImageInput
+            placeHolder="Click to select Image"
+            handleFileUpload={handleFileUpload}
+          />
           {image && (
             <div className={classes.image_conatiner}>
               <p className={classes.title}>Selected files:</p>
