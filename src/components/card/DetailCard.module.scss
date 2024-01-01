@@ -46,7 +46,7 @@
 
         .card {
             width: 100%;
-            max-width: 245px;
+            max-width: 260px;
             margin-right: 1rem;
             margin-bottom: 24px;
             border-radius: 4px;
@@ -67,10 +67,17 @@
                 max-width: 345px;
             }
 
-            .title {
-                font-size: 1rem;
-                font-weight: 600;
-                padding: 20px;
+            .title_contain {
+                width: 195px;
+
+                .title {
+                    font-size: 14px;
+                    font-weight: 600;
+                    padding: 20px;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
             }
 
             img {

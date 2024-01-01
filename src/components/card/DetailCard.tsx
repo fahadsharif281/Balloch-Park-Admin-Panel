@@ -13,30 +13,8 @@ import { Card, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { IDetailCard } from "../../models/IDetailCard";
 import { useNavigate } from "react-router-dom";
 
-const DetailCard = ({ title, addTo }: IDetailCard) => {
+const DetailCard = ({ title, addTo, results }: IDetailCard) => {
   const navigate = useNavigate();
-  const detailsArray = [
-    {
-      src: logo,
-      title: "testing",
-    },
-    {
-      src: logo,
-      title: "testing",
-    },
-    {
-      src: logo,
-      title: "testing",
-    },
-    {
-      src: logo,
-      title: "testing",
-    },
-    {
-      src: logo,
-      title: "testing",
-    },
-  ];
   const renderTooltip = (name: string, ...props: any) => (
     <Tooltip id="button-tooltip" {...props}>
       <div style={{ fontSize: "10px" }}>{name}</div>
@@ -69,43 +47,48 @@ const DetailCard = ({ title, addTo }: IDetailCard) => {
           </div>
         </div>
         <div className={classes.card_container}>
-          {detailsArray?.map((items) => {
-            return (
-              <Card className={classes.card}>
-                <img src={items.src} />
-                <Card.Title className={classes.title}>{items.title}</Card.Title>
-                <div className={classes.card_images}>
-                  <OverlayTrigger
-                    placement="bottom"
-                    delay={{ show: 100, hide: 100 }}
-                    overlay={renderTooltip("Delete")}
-                  >
-                    <div>
-                      <DeleteIcon />
-                    </div>
-                  </OverlayTrigger>
-                  <OverlayTrigger
-                    placement="bottom"
-                    delay={{ show: 100, hide: 100 }}
-                    overlay={renderTooltip("Edit")}
-                  >
-                    <div>
-                      <EditIcon />
-                    </div>
-                  </OverlayTrigger>
-                  <OverlayTrigger
-                    placement="bottom"
-                    delay={{ show: 100, hide: 100 }}
-                    overlay={renderTooltip("View")}
-                  >
-                    <div>
-                      <ViewIcon />
-                    </div>
-                  </OverlayTrigger>
-                </div>
-              </Card>
-            );
-          })}
+          {results &&
+            results?.map((items) => {
+              return (
+                <Card className={classes.card}>
+                  <img src={items.images[0].image_url} />
+                  <div className={classes.title_contain}>
+                    <Card.Title className={classes.title}>
+                      {items.title}
+                    </Card.Title>
+                  </div>
+                  <div className={classes.card_images}>
+                    <OverlayTrigger
+                      placement="bottom"
+                      delay={{ show: 100, hide: 100 }}
+                      overlay={renderTooltip("Delete")}
+                    >
+                      <div>
+                        <DeleteIcon />
+                      </div>
+                    </OverlayTrigger>
+                    <OverlayTrigger
+                      placement="bottom"
+                      delay={{ show: 100, hide: 100 }}
+                      overlay={renderTooltip("Edit")}
+                    >
+                      <div>
+                        <EditIcon />
+                      </div>
+                    </OverlayTrigger>
+                    <OverlayTrigger
+                      placement="bottom"
+                      delay={{ show: 100, hide: 100 }}
+                      overlay={renderTooltip("View")}
+                    >
+                      <div>
+                        <ViewIcon />
+                      </div>
+                    </OverlayTrigger>
+                  </div>
+                </Card>
+              );
+            })}
         </div>
       </div>
     </>

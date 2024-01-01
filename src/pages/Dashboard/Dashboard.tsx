@@ -1,9 +1,25 @@
 import { useState } from "react";
 import Card from "./Card/Card";
 import classes from "./Dashboard.module.scss";
+import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
+
+const containerStyle = {
+  width: "400px",
+  height: "400px",
+};
+
+const center = {
+  lat: -3.745,
+  lng: -38.523,
+};
 
 const Dashboard = () => {
   const [focus, setFocus] = useState("graph");
+  // const { isLoaded, loadError } = useLoadScript({
+  //   id: "google-map-script",
+  //   googleMapsApiKey: "",
+  // });
+
   const cardContent = [
     {
       heading: "Total Users",
@@ -61,6 +77,9 @@ const Dashboard = () => {
           </div>
         </div>
         <div>{focus === "graph" ? <div>Graph</div> : <div>Map</div>}</div>
+        {/* <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
+          <Marker position={center} />
+        </GoogleMap> */}
       </div>
     </div>
   );
