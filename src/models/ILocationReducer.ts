@@ -2,6 +2,8 @@ export interface ILoactionReducer {
   allLocations: string | Result[];
   isLoading: boolean;
   error: string;
+  longitude: string | number;
+  latitude: string | number;
 }
 
 export interface ILocationAPIResponse {

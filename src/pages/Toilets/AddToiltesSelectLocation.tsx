@@ -17,7 +17,10 @@ const AddToiltesSelectLocation = () => {
     <>
       <div className={classes.location_container}>
         <BreadCrumbs items={breadCrumbsItems} />
-        <SelectLocation to="/toilets/select-location/add-form" />
+        <SelectLocation
+          heading="Click on map to pick location"
+          to="/toilets/select-location/add-form"
+        />
       </div>
     </>
   );

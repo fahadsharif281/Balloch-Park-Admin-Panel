@@ -22,6 +22,8 @@ const LifeBouys = () => {
             results={allLocations}
             title="Lifebouys"
             addTo="/life-bouys/select-location"
+            viewTo="/life-bouys/view-details"
+            editTo="/life-bouys/edit-details"
           />
         </div>
       )}

@@ -22,6 +22,8 @@ const ViewPoints = () => {
             results={allLocations}
             title="Viewpoints"
             addTo="/view-points/select-location"
+            viewTo="/view-points/view-details"
+            editTo="/view-points/edit-details"
           />
         </div>
       )}

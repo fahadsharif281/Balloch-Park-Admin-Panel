@@ -22,6 +22,8 @@ const GardenWoodsAndFairy = () => {
             results={allLocations}
             title="Gardens, Woods & Fairy Glen"
             addTo="/garden-woods/select-location"
+            viewTo="/garden-woods/view-details"
+            editTo="/garden-woods/edit-details"
           />
         </div>
       )}

@@ -1,19 +1,25 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { IUser } from "../../models/IUser";
+import { createSlice } from "@reduxjs/toolkit";
 import { ILoactionReducer } from "../../models/ILocationReducer";
-import { store } from "../store";
 import { getAllLocationsByType } from "../actions/locations.action";
 
 const initialState: ILoactionReducer = {
   allLocations: "",
   isLoading: false,
   error: "",
+  longitude: "",
+  latitude: "",
 };
 
 export const locationSlice = createSlice({
   name: "location",
   initialState,
   reducers: {
+    setLongitude: (state, action) => {
+      state.longitude = action.payload;
+    },
+    setLatitude: (state, action) => {
+      state.latitude = action.payload;
+    },
     resetLocation: () => initialState,
   },
   extraReducers: (builder) => {
@@ -38,6 +44,7 @@ export const locationSlice = createSlice({
   },
 });
 
-export const { resetLocation } = locationSlice.actions;
+export const { resetLocation, setLatitude, setLongitude } =
+  locationSlice.actions;
 
 export default locationSlice.reducer;

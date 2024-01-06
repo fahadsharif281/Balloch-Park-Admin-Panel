@@ -1,25 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "./Card/Card";
 import classes from "./Dashboard.module.scss";
-import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
-
-const containerStyle = {
-  width: "400px",
-  height: "400px",
-};
-
-const center = {
-  lat: -3.745,
-  lng: -38.523,
-};
-
+import AppGoogleMap from "../../components/googleMap/AppGoogleMap";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllMapLocations } from "../../redux/actions/dashboard.action";
 const Dashboard = () => {
+  const dispatch = useDispatch<any>();
+  const { allMapLocations } = useSelector((state: any) => state.root.dashboard);
   const [focus, setFocus] = useState("graph");
-  // const { isLoaded, loadError } = useLoadScript({
-  //   id: "google-map-script",
-  //   googleMapsApiKey: "",
-  // });
-
   const cardContent = [
     {
       heading: "Total Users",
@@ -38,6 +26,9 @@ const Dashboard = () => {
       subheading: "2",
     },
   ];
+  useEffect(() => {
+    dispatch(getAllMapLocations());
+  }, []);
   return (
     <div className={classes.container}>
       <div className={classes.mainheading}>Dashboard</div>
@@ -76,10 +67,15 @@ const Dashboard = () => {
             </button>
           </div>
         </div>
-        <div>{focus === "graph" ? <div>Graph</div> : <div>Map</div>}</div>
-        {/* <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
-          <Marker position={center} />
-        </GoogleMap> */}
+        <div className={classes.locations_container}>
+          {focus === "graph" ? (
+            <>Graph</>
+          ) : (
+            <>
+              <AppGoogleMap allMapLocations={allMapLocations} />
+            </>
+          )}
+        </div>
       </div>
     </div>
   );

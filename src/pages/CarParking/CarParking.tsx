@@ -22,6 +22,8 @@ const CarParking = () => {
             results={allLocations}
             title="Car Parking"
             addTo="/car-parking/select-location"
+            viewTo="/car-parking/view-details"
+            editTo="/car-parking/edit-details"
           />
         </div>
       )}

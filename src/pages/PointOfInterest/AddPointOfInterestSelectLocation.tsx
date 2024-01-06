@@ -16,7 +16,10 @@ const AddPointOfInterestSelectLocation = () => {
     <>
       <div>
         <BreadCrumbs items={breadCrumbsItems} />
-        <SelectLocation to="/point-of-interest/select-location/add-form" />
+        <SelectLocation
+          heading="Click on map to pick location"
+          to="/point-of-interest/select-location/add-form"
+        />
       </div>
     </>
   );

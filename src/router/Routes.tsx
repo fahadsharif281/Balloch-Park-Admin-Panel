@@ -24,8 +24,8 @@ const Routes = (): JSX.Element => {
       )}
       <ToastContainer
         position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
+        autoClose={3000}
+        hideProgressBar={true}
         newestOnTop={false}
         closeOnClick
         rtl={false}
@@ -54,6 +54,12 @@ const Routes = (): JSX.Element => {
                     <Route
                       path={item?.add_to}
                       element={<item.add_component />}
+                    />
+                  )}
+                  {item?.view_to && (
+                    <Route
+                      path={item?.view_to}
+                      element={<item.view_component />}
                     />
                   )}
                   {item?.select_location_to && (

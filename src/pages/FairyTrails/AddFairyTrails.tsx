@@ -10,9 +10,7 @@ const AddFairyTrails = () => {
     { name: "Select Location", to: "/fairy-trails/select-location" },
     { name: "Add Details", to: "", active: true },
   ];
-  const handleSubmit = (values: any) => {
-    console.log("submit values:", values);
-  };
+  const handleSubmit = (values: any) => {};
   return (
     <>
       <div className={classes.container}>

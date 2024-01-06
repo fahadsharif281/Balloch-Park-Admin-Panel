@@ -16,7 +16,10 @@ const AddPicnicTablesSelectLocation = () => {
     <>
       <div>
         <BreadCrumbs items={breadCrumbsItems} />
-        <SelectLocation to="/picnic-tables/select-location/add-form" />
+        <SelectLocation
+          heading="Click on map to pick location"
+          to="/picnic-tables/select-location/add-form"
+        />
       </div>
     </>
   );

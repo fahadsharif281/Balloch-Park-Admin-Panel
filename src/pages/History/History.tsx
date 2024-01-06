@@ -22,6 +22,8 @@ const History = () => {
             results={allLocations}
             title="History"
             addTo="/history/select-location"
+            viewTo="/history/view-details"
+            editTo="/history/edit-details"
           />
         </div>
       )}

@@ -17,7 +17,10 @@ const AddCarParkingSelectLocation = () => {
     <>
       <div className={classes.location_container}>
         <BreadCrumbs items={breadCrumbsItems} />
-        <SelectLocation to="/car-parking/select-location/add-form" />
+        <SelectLocation
+          heading="Click on map to pick location"
+          to="/car-parking/select-location/add-form"
+        />
       </div>
     </>
   );

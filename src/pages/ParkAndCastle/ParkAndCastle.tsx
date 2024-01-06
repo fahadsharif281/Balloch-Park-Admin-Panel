@@ -22,6 +22,8 @@ const ParkAndCastle = () => {
             results={allLocations}
             title="Balloch Park & Castle"
             addTo="/park-and-castle/select-location"
+            viewTo="/park-and-castle/view-details"
+            editTo="/park-and-castle/edit-details"
           />
         </div>
       )}
