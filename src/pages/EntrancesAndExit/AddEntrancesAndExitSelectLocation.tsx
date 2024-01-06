@@ -17,7 +17,10 @@ const AddEntrancesAndExitSelectLocation = () => {
     <>
       <div className={classes.location_container}>
         <BreadCrumbs items={breadCrumbsItems} />
-        <SelectLocation to="/entrance-exit/select-location/add-form" />
+        <SelectLocation
+          heading="Click on map to pick location"
+          to="/entrance-exit/select-location/add-form"
+        />
       </div>
     </>
   );

@@ -16,7 +16,10 @@ const AddGardenWoodsAndFairySelectLocation = () => {
     <>
       <div>
         <BreadCrumbs items={breadCrumbsItems} />
-        <SelectLocation to="/garden-woods/select-location/add-form" />
+        <SelectLocation
+          heading="Click on map to pick location"
+          to="/garden-woods/select-location/add-form"
+        />
       </div>
     </>
   );

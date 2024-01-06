@@ -5,16 +5,17 @@ import userReducer from "./reducers/userReducer";
 import { TypedUseSelectorHook, useSelector } from "react-redux";
 import storage from "redux-persist/lib/storage";
 import locationReducer from "./reducers/locationReducer";
+import dashboardReducer from "./reducers/dashboardReducer";
 
 const persistConfig = {
   key: "root",
   storage: storage,
-  whitelist: ["user"],
 };
 
 const reducers = combineReducers({
   user: userReducer,
   location: locationReducer,
+  dashboard: dashboardReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducers);

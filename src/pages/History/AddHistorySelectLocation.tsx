@@ -16,7 +16,10 @@ const AddHistorySelectLocation = () => {
     <>
       <div>
         <BreadCrumbs items={breadCrumbsItems} />
-        <SelectLocation to="/history/select-location/add-form" />
+        <SelectLocation
+          heading="Click on map to pick location"
+          to="/history/select-location/add-form"
+        />
       </div>
     </>
   );

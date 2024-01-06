@@ -22,6 +22,8 @@ const KidsPlay = () => {
             results={allLocations}
             title="Kids Play Areas"
             addTo="/kids-play/select-location"
+            viewTo="/kids-play/view-details"
+            editTo="/kids-play/edit-details"
           />
         </div>
       )}

@@ -16,7 +16,10 @@ const AddViewPointsSelectLocation = () => {
     <>
       <div>
         <BreadCrumbs items={breadCrumbsItems} />
-        <SelectLocation to="/view-points/select-location/add-form" />
+        <SelectLocation
+          heading="Click on map to pick location"
+          to="/view-points/select-location/add-form"
+        />
       </div>
     </>
   );

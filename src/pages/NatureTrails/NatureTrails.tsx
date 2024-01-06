@@ -22,6 +22,8 @@ const NatureTrails = () => {
             results={allLocations}
             title="Nature Trails & Walks"
             addTo="/nature-trails/select-location"
+            viewTo="/nature-trails/view-details"
+            editTo="/nature-trails/edit-details"
           />
         </div>
       )}

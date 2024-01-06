@@ -1,6 +1,4 @@
-import React from "react";
 import SourceForm from "../../components/sourceForm/SourceForm";
-import SelectLocation from "../../components/selectLocation/SelectLocation";
 
 const ViewCarParkingDetails = () => {
   const breadCrumbsItems = [

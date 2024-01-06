@@ -51,10 +51,10 @@ const DetailCard = ({ title, addTo, viewTo, editTo, results }: IDetailCard) => {
             results?.map((items) => {
               return (
                 <Card className={classes.card}>
-                  <img src={items.images[0].image_url} />
+                  <img src={items?.images[0]?.image_url} />
                   <div className={classes.title_contain}>
                     <Card.Title className={classes.title}>
-                      {items.title}
+                      {items?.title}
                     </Card.Title>
                   </div>
                   <div className={classes.card_images}>

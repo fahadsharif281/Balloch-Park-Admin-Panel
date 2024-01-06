@@ -22,6 +22,8 @@ const DangerousWaters = () => {
           <DetailCard
             title="Dangerous Waters"
             addTo="/dangerous-waters/select-location"
+            viewTo="/dangerous-waters/view-details"
+            editTo="/dangerous-waters/edit-details"
             results={allLocations}
           />
         )}

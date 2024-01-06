@@ -22,6 +22,8 @@ const Toiltes = () => {
             results={allLocations}
             title="Toilets"
             addTo="/toilets/select-location"
+            viewTo="/toilets/view-details"
+            editTo="/toilets/edit-details"
           />
         </div>
       )}

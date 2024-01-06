@@ -1,13 +1,21 @@
 .container {
   height: 100vh;
+  position: relative;
 
   .img {
     cursor: pointer;
     padding: 8px 24px;
     box-sizing: border-box;
+    background-color: white;
+    position: fixed;
+    z-index: 999;
+    border-right: 4px solid white;
   }
 
   .menu_list {
+    position: relative;
+    left: 0;
+    top: 110px;
     padding-top: 1rem;
 
     .active_menu_item {

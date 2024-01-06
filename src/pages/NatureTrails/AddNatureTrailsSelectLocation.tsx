@@ -16,7 +16,10 @@ const AddNatureTrailsSelectLocation = () => {
     <>
       <div>
         <BreadCrumbs items={breadCrumbsItems} />
-        <SelectLocation to="/nature-trails/select-location/add-form" />
+        <SelectLocation
+          heading="Click on map to pick location"
+          to="/nature-trails/select-location/add-form"
+        />
       </div>
     </>
   );

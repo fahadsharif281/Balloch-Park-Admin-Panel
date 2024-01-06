@@ -22,6 +22,8 @@ const EntrancesAndExit = () => {
             results={allLocations}
             title="Entrances & Exits"
             addTo="/entrance-exit/select-location"
+            viewTo="/entrance-exit/view-details"
+            editTo="/entrance-exit/edit-details"
           />
         </div>
       )}

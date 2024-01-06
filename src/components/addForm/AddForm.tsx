@@ -8,6 +8,7 @@ import * as Yup from "yup";
 import { toBase64 } from "../../utils/helpers";
 import { useNavigate } from "react-router-dom";
 import ImageInput from "../common/ImageInput/ImageInput";
+import { useSelector } from "react-redux";
 
 const AddForm = ({
   handleSubmit = () => {},
@@ -17,6 +18,9 @@ const AddForm = ({
   changeLocationTo?: string;
 }) => {
   const navigate = useNavigate();
+  const { longitude, latitude } = useSelector(
+    (state: any) => state.root.location
+  );
   const [image, setImage] = useState("");
   const formik = useFormik({
     initialValues: {
@@ -24,8 +28,8 @@ const AddForm = ({
       locationDetail: "",
       locationDistance: "",
       locationAverageTime: "",
-      latitude: "31231.312312",
-      longitute: "-3123.321312",
+      latitude: latitude,
+      longitute: longitude,
       imageFile: "",
     },
     validationSchema: Yup.object().shape({

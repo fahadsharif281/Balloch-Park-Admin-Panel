@@ -17,7 +17,10 @@ const AddParkAndCastleSelectLocation = () => {
     <>
       <div className={classes.location_container}>
         <BreadCrumbs items={breadCrumbsItems} />
-        <SelectLocation to="/park-and-castle/select-location/add-form" />
+        <SelectLocation
+          heading="Click on map to pick location"
+          to="/park-and-castle/select-location/add-form"
+        />
       </div>
     </>
   );

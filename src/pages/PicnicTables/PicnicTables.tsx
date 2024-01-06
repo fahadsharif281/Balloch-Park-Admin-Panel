@@ -22,6 +22,8 @@ const PicnicTables = () => {
             results={allLocations}
             title="Picnic Tables"
             addTo="/picnic-tables/select-location"
+            viewTo="/picnic-tables/view-details"
+            editTo="/picnic-tables/edit-details"
           />
         </div>
       )}

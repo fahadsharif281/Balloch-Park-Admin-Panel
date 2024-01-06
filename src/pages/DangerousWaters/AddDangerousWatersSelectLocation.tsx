@@ -17,7 +17,10 @@ const AddDangerousWatersSelectLocation = () => {
     <>
       <div className={classes.location_container}>
         <BreadCrumbs items={breadCrumbsItems} />
-        <SelectLocation to="/dangerous-waters/select-location/add-form" />
+        <SelectLocation
+          heading="Click on map to pick location"
+          to="/dangerous-waters/select-location/add-form"
+        />
       </div>
     </>
   );

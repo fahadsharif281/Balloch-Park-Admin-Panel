@@ -16,7 +16,10 @@ const AddKidsPlaySelectLocation = () => {
     <>
       <div>
         <BreadCrumbs items={breadCrumbsItems} />
-        <SelectLocation to="/kids-play/select-location/add-form" />
+        <SelectLocation
+          heading="Click on map to pick location"
+          to="/kids-play/select-location/add-form"
+        />
       </div>
     </>
   );

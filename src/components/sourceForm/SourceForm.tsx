@@ -46,7 +46,10 @@ const SourceForm = ({
       {breadCrumbsItems && <BreadCrumbs items={breadCrumbsItems} />}
       <div className={classes.container}>
         <div className={classes.location_container}>
-          <SelectLocation />
+          <SelectLocation
+            heading={formType === "edit" ? "Click on map to edit location" : ""}
+            subHeading="Location"
+          />
         </div>
         <div className={classes.submit_form}>
           <form

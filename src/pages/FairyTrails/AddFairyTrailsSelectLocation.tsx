@@ -17,7 +17,10 @@ const AddFairyTrailsSelectLocation = () => {
     <>
       <div className={classes.location_container}>
         <BreadCrumbs items={breadCrumbsItems} />
-        <SelectLocation to="/fairy-trails/select-location/add-form" />
+        <SelectLocation
+          heading="Click on map to pick location"
+          to="/fairy-trails/select-location/add-form"
+        />
       </div>
     </>
   );

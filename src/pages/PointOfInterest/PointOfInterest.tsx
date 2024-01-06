@@ -22,6 +22,8 @@ const PointOfInterest = () => {
             results={allLocations}
             title="Point Of Interest"
             addTo="/point-of-interest/select-location"
+            viewTo="/point-of-interest/view-details"
+            editTo="/point-of-interest/edit-details"
           />
         </div>
       )}

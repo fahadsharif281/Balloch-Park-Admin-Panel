@@ -22,6 +22,8 @@ const FairyTrails = () => {
             results={allLocations}
             title="The Fairy Trail"
             addTo="/fairy-trails/select-location"
+            viewTo="/fairy-trails/view-details"
+            editTo="/fairy-trails/edit-details"
           />
         </div>
       )}
