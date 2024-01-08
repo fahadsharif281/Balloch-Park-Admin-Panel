@@ -2,6 +2,8 @@ import { useSelector } from "react-redux";
 import Dashboard from "../../pages/Dashboard/Dashboard";
 import { userRoutesAll } from "../../router/AllRoutes";
 import dashboardImg from "../../assets/png/dashboard.png";
+import contactUsImg from "../../assets/png/phoneIcon.png";
+import ContactUs from "../../pages/ContactUs/ContactUs";
 
 export const useRoutes = () => {
   const { routes } = useSelector((state: any) => state.root.user);
@@ -28,6 +30,12 @@ export const useRoutes = () => {
       screen_name: "Dashboard",
     },
     ...mergeUserRoutes,
+    {
+      to: "/contact-us",
+      component: ContactUs,
+      image: contactUsImg,
+      screen_name: "Contact us",
+    },
   ];
 
   return { userRoutes };

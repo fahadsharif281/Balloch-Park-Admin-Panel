@@ -29,3 +29,6 @@ export const postCreateLocationApiCall = async (params: any): Promise<any> => {
     },
   });
 };
+export const getContactUsDataApiCall = async (): Promise<any> => {
+  return HTTP_CLIENT.get<any>(`/api/contact_us/getContact_us`);
+};

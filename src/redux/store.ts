@@ -6,6 +6,7 @@ import { TypedUseSelectorHook, useSelector } from "react-redux";
 import storage from "redux-persist/lib/storage";
 import locationReducer from "./reducers/locationReducer";
 import dashboardReducer from "./reducers/dashboardReducer";
+import contactUsReducer from "./reducers/contactUsReducer";
 
 const persistConfig = {
   key: "root",
@@ -16,6 +17,7 @@ const reducers = combineReducers({
   user: userReducer,
   location: locationReducer,
   dashboard: dashboardReducer,
+  contactUs: contactUsReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducers);
