@@ -16,6 +16,11 @@ const ContactUs = () => {
         You are Viewing queries of user from App and Website.
       </div>
       <div className={classes.container}>
+        {/* <div className={classes.card_section}>
+          <div className={classes.name}>dsad</div>
+          <div className={classes.email}>dasda</div>
+          <div className={classes.message}>dasdas</div>
+        </div> */}
         {!!results.length &&
           results?.map((item: Result) => {
             return (

@@ -12,6 +12,7 @@
     flex-wrap: wrap;
     margin-top: 2rem;
     gap: 2rem;
+    justify-content: space-between;
     .card_section {
       background-color: rgb(255, 255, 255);
       color: rgb(38, 38, 38);
@@ -20,10 +21,10 @@
       border: 1px solid rgb(230, 235, 241);
       border-radius: 4px;
       margin-bottom: 7px;
-      width: 332px;
+      flex-basis: 100%;
+      max-width: 345px;
       padding: 20px;
       padding-bottom: 40px;
-      flex-grow: 1;
       overflow-y: auto;
       height: 150px;
       .name {
