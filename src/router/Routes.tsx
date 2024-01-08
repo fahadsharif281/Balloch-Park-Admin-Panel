@@ -14,10 +14,13 @@ import classes from "./Routes.module.scss";
 const Routes = (): JSX.Element => {
   const { userRoutes } = useRoutes();
   const { isLoading } = useSelector((state: any) => state.root.location);
+  const { isResultsLoading } = useSelector(
+    (state: any) => state.root.contactUs
+  );
 
   return (
     <>
-      {isLoading && (
+      {(isLoading || isResultsLoading) && (
         <div className={classes.loader_container}>
           <LinearProgress className={classes.loader} color="success" />
         </div>
