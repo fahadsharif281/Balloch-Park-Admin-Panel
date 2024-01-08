@@ -6,7 +6,7 @@ import TimePicker from "../common/TimePicker/TimePicker";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { toBase64 } from "../../utils/helpers";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import ImageInput from "../common/ImageInput/ImageInput";
 import { useSelector } from "react-redux";
 
@@ -18,6 +18,7 @@ const AddForm = ({
   changeLocationTo?: string;
 }) => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { longitude, latitude } = useSelector(
     (state: any) => state.root.location
   );
@@ -30,6 +31,7 @@ const AddForm = ({
       locationAverageTime: "",
       latitude: latitude,
       longitute: longitude,
+      locationParkingCapacity: "",
       imageFile: "",
     },
     validationSchema: Yup.object().shape({
@@ -104,6 +106,14 @@ const AddForm = ({
             }}
             value={formik.values.locationAverageTime}
           />
+          {location.pathname === "/toilets/select-location/add-form" && (
+            <Input
+              type="text"
+              onChange={formik.handleChange("locationParkingCapacity")}
+              value={formik.values.locationParkingCapacity}
+              placeholder="Enter Parking Capacity"
+            />
+          )}
           <div className={classes.location_conatiner}>
             <Input
               type="text"
