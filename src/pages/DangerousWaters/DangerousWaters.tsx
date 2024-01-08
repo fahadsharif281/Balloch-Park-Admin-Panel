@@ -3,6 +3,7 @@ import DetailCard from "../../components/card/DetailCard";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllLocationsByType } from "../../redux/actions/locations.action";
 import { LinearProgress } from "@mui/material";
+import { setSelectedLocation } from "../../redux/reducers/locationReducer";
 
 const DangerousWaters = () => {
   const dispatch = useDispatch<any>();
@@ -13,6 +14,7 @@ const DangerousWaters = () => {
     const params = {
       type: "entrance",
     };
+    dispatch(setSelectedLocation(""));
     dispatch(getAllLocationsByType(params));
   }, []);
   return (

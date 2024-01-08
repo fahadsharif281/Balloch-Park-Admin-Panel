@@ -4,6 +4,7 @@ export interface ILoactionReducer {
   error: string;
   longitude: string | number;
   latitude: string | number;
+  selectedLocation: string | Result;
 }
 
 export interface ILocationAPIResponse {

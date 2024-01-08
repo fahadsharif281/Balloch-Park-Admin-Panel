@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import DetailCard from "../../components/card/DetailCard";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllLocationsByType } from "../../redux/actions/locations.action";
+import { setSelectedLocation } from "../../redux/reducers/locationReducer";
 
 const History = () => {
   const dispatch = useDispatch<any>();
@@ -12,6 +13,7 @@ const History = () => {
     const params = {
       type: "play_park",
     };
+    dispatch(setSelectedLocation(""));
     dispatch(getAllLocationsByType(params));
   }, []);
   return (

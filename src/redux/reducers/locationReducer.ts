@@ -8,6 +8,7 @@ const initialState: ILoactionReducer = {
   error: "",
   longitude: "",
   latitude: "",
+  selectedLocation: "",
 };
 
 export const locationSlice = createSlice({
@@ -19,6 +20,9 @@ export const locationSlice = createSlice({
     },
     setLatitude: (state, action) => {
       state.latitude = action.payload;
+    },
+    setSelectedLocation: (state, action) => {
+      state.selectedLocation = action.payload;
     },
     resetLocation: () => initialState,
   },
@@ -44,7 +48,7 @@ export const locationSlice = createSlice({
   },
 });
 
-export const { resetLocation, setLatitude, setLongitude } =
+export const { resetLocation, setLatitude, setLongitude, setSelectedLocation } =
   locationSlice.actions;
 
 export default locationSlice.reducer;

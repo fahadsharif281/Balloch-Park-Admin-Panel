@@ -12,14 +12,21 @@ import logo from "../../assets/png/dashboard.png";
 import { Card, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { IDetailCard } from "../../models/IDetailCard";
 import { useNavigate } from "react-router-dom";
+import { Result } from "../../models/ILocationReducer";
+import { useDispatch } from "react-redux";
+import { setSelectedLocation } from "../../redux/reducers/locationReducer";
 
 const DetailCard = ({ title, addTo, viewTo, editTo, results }: IDetailCard) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const renderTooltip = (name: string, ...props: any) => (
     <Tooltip id="button-tooltip" {...props}>
       <div style={{ fontSize: "10px" }}>{name}</div>
     </Tooltip>
   );
+  const handleIconClick = (data: Result) => {
+    dispatch(setSelectedLocation(data));
+  };
   return (
     <>
       <div className={classes.container}>
@@ -48,7 +55,7 @@ const DetailCard = ({ title, addTo, viewTo, editTo, results }: IDetailCard) => {
         </div>
         <div className={classes.card_container}>
           {results &&
-            results?.map((items) => {
+            results?.map((items: Result) => {
               return (
                 <Card className={classes.card}>
                   <img src={items?.images[0]?.image_url} />
@@ -57,7 +64,12 @@ const DetailCard = ({ title, addTo, viewTo, editTo, results }: IDetailCard) => {
                       {items?.title}
                     </Card.Title>
                   </div>
-                  <div className={classes.card_images}>
+                  <div
+                    onClick={() => {
+                      handleIconClick(items);
+                    }}
+                    className={classes.card_images}
+                  >
                     <OverlayTrigger
                       placement="bottom"
                       delay={{ show: 100, hide: 100 }}

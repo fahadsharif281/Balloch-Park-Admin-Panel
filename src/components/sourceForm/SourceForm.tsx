@@ -9,6 +9,7 @@ import { IBreadCrumbsItems } from "../../models/common/IBreadCrumbs";
 import { TextArea } from "../common/TextArea/TextArea";
 import { useState } from "react";
 import { toBase64 } from "../../utils/helpers";
+import { useSelector } from "react-redux";
 
 const SourceForm = ({
   handleSubmit = () => {},
@@ -19,15 +20,16 @@ const SourceForm = ({
   breadCrumbsItems?: IBreadCrumbsItems[];
   formType: string;
 }) => {
+  const { selectedLocation } = useSelector((state: any) => state.root.location);
   const [image, setImage] = useState("");
   const formik = useFormik({
     initialValues: {
-      title: "",
-      description: "",
-      distance: "",
-      averageTime: "",
-      capacity: "",
-      imageFile: "",
+      title: selectedLocation?.title || "",
+      description: selectedLocation?.description || "",
+      distance: selectedLocation?.distance || "",
+      averageTime: selectedLocation?.avg_time || "",
+      capacity: selectedLocation?.capacity || "",
+      imageFile: selectedLocation?.title || "",
     },
     onSubmit: handleSubmit,
   });
@@ -85,7 +87,7 @@ const SourceForm = ({
               error={
                 formik.touched.title && formik.errors.title
                   ? formik.errors.title
-                  : ""
+                  : ("" as any)
               }
               placeholder="Enter Location Name"
               label="Title"
@@ -95,11 +97,11 @@ const SourceForm = ({
               value={formik.values.description}
               onChange={formik.handleChange("description")}
               onBlur={formik.handleBlur("description")}
-              error={
-                formik.touched.description && formik.errors.description
-                  ? formik.errors.description
-                  : ""
-              }
+              // error={
+              //   formik?.touched?.description && formik?.errors?.description
+              //     ? formik?.errors?.description
+              //     : ""
+              // }
               placeholder="Enter Location Detail"
               label="Description"
             />
@@ -108,11 +110,11 @@ const SourceForm = ({
               value={formik.values.distance}
               onChange={formik.handleChange("distance")}
               onBlur={formik.handleBlur("distance")}
-              error={
-                formik.touched.distance && formik.errors.distance
-                  ? formik.errors.distance
-                  : ""
-              }
+              // error={
+              //   formik.touched.distance && formik.errors.distance
+              //     ? formik.errors.distance
+              //     : ""
+              // }
               placeholder="Enter Location Distance"
               label="Distance"
             />
@@ -121,11 +123,11 @@ const SourceForm = ({
               value={formik.values.averageTime}
               onChange={formik.handleChange("averageTime")}
               onBlur={formik.handleBlur("averageTime")}
-              error={
-                formik.touched.averageTime && formik.errors.averageTime
-                  ? formik.errors.averageTime
-                  : ""
-              }
+              // error={
+              //   formik.touched.averageTime && formik.errors.averageTime
+              //     ? formik.errors.averageTime
+              //     : ""
+              // }
               placeholder="Enter Location Average Time"
               label="Average Time"
             />
@@ -135,11 +137,11 @@ const SourceForm = ({
                 value={formik.values.capacity}
                 onChange={formik.handleChange("capacity")}
                 onBlur={formik.handleBlur("capacity")}
-                error={
-                  formik.touched.capacity && formik.errors.capacity
-                    ? formik.errors.capacity
-                    : ""
-                }
+                // error={
+                //   formik.touched.capacity && formik.errors.capacity
+                //     ? formik.errors.capacity
+                //     : ""
+                // }
                 placeholder="Enter Location Name"
                 label="Capacity"
               />
