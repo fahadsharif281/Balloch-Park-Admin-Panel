@@ -16,17 +16,18 @@ const ContactUs = () => {
         You are Viewing queries of user from App and Website.
       </div>
       <div className={classes.container}>
-        {results?.map((item: Result) => {
-          return (
-            <>
-              <div className={classes.card_section}>
-                <div className={classes.name}>{item?.full_name}</div>
-                <div className={classes.email}>{item?.email}</div>
-                <div className={classes.message}>{item?.message}</div>
-              </div>
-            </>
-          );
-        })}
+        {!!results.length &&
+          results?.map((item: Result) => {
+            return (
+              <>
+                <div className={classes.card_section}>
+                  <div className={classes.name}>{item?.full_name}</div>
+                  <div className={classes.email}>{item?.email}</div>
+                  <div className={classes.message}>{item?.message}</div>
+                </div>
+              </>
+            );
+          })}
       </div>
     </div>
   );
