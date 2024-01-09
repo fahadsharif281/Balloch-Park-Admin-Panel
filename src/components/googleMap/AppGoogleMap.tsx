@@ -9,9 +9,11 @@ import {
 const AppGoogleMap = ({
   allMapLocations,
   handleClickOnMap,
+  type,
 }: {
   allMapLocations?: IDashboardMapDatum[];
   handleClickOnMap?: (event: any) => void;
+  type: string;
 }) => {
   const dispatch = useDispatch();
   const { longitude, latitude } = useSelector(
@@ -52,7 +54,7 @@ const AppGoogleMap = ({
           onLoad={() => {}}
           onClick={handleClick}
         >
-          {allMapLocations ? (
+          {allMapLocations &&
             allMapLocations?.map((item: IDashboardMapDatum, index: number) => {
               return (
                 <MarkerF
@@ -67,8 +69,8 @@ const AppGoogleMap = ({
                   }}
                 />
               );
-            })
-          ) : (
+            })}
+          {type === "marker" && (
             <MarkerF
               position={{
                 lat: latitude,
