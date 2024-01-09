@@ -1,11 +1,6 @@
-import React from "react";
 import logo from "../../assets/jpg/sideBarLogo.jpeg";
 import classes from "./Sidebar.module.scss";
-import dashboard from "../../assets/png/dashboard.png";
-import { useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
-import { userRoutesAll } from "../../router/AllRoutes";
-import Dashboard from "../../pages/Dashboard/Dashboard";
 import { useRoutes } from "../../utils/hooks/useRoutes";
 
 const baseURL = process.env.REACT_APP_BASE_URL;
@@ -33,7 +28,7 @@ export const Sidebar = ({
               navigate("/");
             }}
             src={logo}
-            width={responsiveView ? "200px" : "235px"}
+            width="100%"
             height="100%"
           />
         </div>
