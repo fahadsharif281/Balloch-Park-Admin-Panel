@@ -32,3 +32,15 @@ export const postCreateLocationApiCall = async (params: any): Promise<any> => {
 export const getContactUsDataApiCall = async (): Promise<any> => {
   return HTTP_CLIENT.get<any>(`/api/contact_us/getContact_us`);
 };
+export const postEditLocationApiCall = async (params: any): Promise<any> => {
+  return HTTP_CLIENT.put<any>(`/api/location/updateLocation`, params, {
+    headers: {
+      "Content-Type":
+        "multipart/form-data; boundary=----WebKitFormBoundarysBgfVbW7Z58abW4J",
+    },
+  });
+};
+
+export const deleteLocationApiCall = async (id: string): Promise<any> => {
+  return HTTP_CLIENT.delete<any>(`/api/location/deleteLocation/${id}`);
+};

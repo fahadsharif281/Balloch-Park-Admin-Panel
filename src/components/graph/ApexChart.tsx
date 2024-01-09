@@ -3,7 +3,7 @@ import ReactApexChart from "react-apexcharts";
 import { getAllLocationsByTypeApiCall } from "../../services/general.services";
 
 const ApexChart: React.FC = () => {
-  // const hasMounted = useRef(false);
+  const hasMounted = useRef(false);
   const [seriesData, setSeriesData] = useState<any>([]);
   const graphItems = [
     "walking-route",
@@ -21,22 +21,23 @@ const ApexChart: React.FC = () => {
     "exit",
   ];
   useEffect(() => {
-    // if (!hasMounted.current) {
-    for (let item of graphItems) {
-      getAllLocationsByTypeApiCall(item)
-        .then((response) => {
-          setSeriesData((prev: any) => [
-            ...prev,
-            response?.data?.result?.length,
-          ]);
-        })
-        .catch((error) => {
-          console.log("error:", error);
-        });
+    if (!hasMounted.current) {
+      for (let item of graphItems) {
+        getAllLocationsByTypeApiCall(item)
+          .then((response) => {
+            setSeriesData((prev: any) => [
+              ...prev,
+              response?.data?.result?.length,
+            ]);
+          })
+          .catch((error) => {
+            console.log("error:", error);
+          });
+      }
+      return () => {
+        hasMounted.current = true;
+      };
     }
-    // return () => {
-    //   hasMounted.current = true;
-    // };
   }, []);
   const options: ApexCharts.ApexOptions = {
     chart: {

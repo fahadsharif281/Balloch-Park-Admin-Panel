@@ -75,7 +75,7 @@ const Dashboard = () => {
             </>
           ) : (
             <>
-              <AppGoogleMap allMapLocations={allMapLocations} />
+              <AppGoogleMap type="noMarker" allMapLocations={allMapLocations} />
             </>
           )}
         </div>

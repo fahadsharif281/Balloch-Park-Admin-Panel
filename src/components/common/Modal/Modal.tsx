@@ -6,8 +6,10 @@ function Modall({
   show,
   onHide,
   children,
+  title,
 }: {
   show: boolean;
+  title?: string;
   onHide: any;
   children: any;
 }) {
@@ -16,7 +18,7 @@ function Modall({
       <div>
         <Modal className={classes.modal} centered show={show} onHide={onHide}>
           <Modal.Header closeButton>
-            <Modal.Title>Update Password</Modal.Title>
+            {title && <Modal.Title>{title}</Modal.Title>}
           </Modal.Header>
           <Modal.Body>{children}</Modal.Body>
         </Modal>

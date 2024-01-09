@@ -151,7 +151,7 @@ const Header = ({
         </div>
       </div>
       {show && (
-        <Modall onHide={handleClose} show={show}>
+        <Modall title="Update Password" onHide={handleClose} show={show}>
           {" "}
           <Form
             onSubmit={(e) => {

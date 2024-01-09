@@ -24,6 +24,8 @@ const SourceForm = ({
   const [image, setImage] = useState("");
   const formik = useFormik({
     initialValues: {
+      locationId: selectedLocation?._id || "",
+      type: selectedLocation?.type || "",
       title: selectedLocation?.title || "",
       description: selectedLocation?.description || "",
       distance: selectedLocation?.distance || "",
@@ -51,6 +53,7 @@ const SourceForm = ({
           <SelectLocation
             heading={formType === "edit" ? "Click on map to edit location" : ""}
             subHeading="Location"
+            formType={formType}
           />
         </div>
         <div className={classes.submit_form}>

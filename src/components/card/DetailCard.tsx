@@ -15,10 +15,12 @@ import { useNavigate } from "react-router-dom";
 import { Result } from "../../models/ILocationReducer";
 import { useDispatch } from "react-redux";
 import { setSelectedLocation } from "../../redux/reducers/locationReducer";
+import { deleteLocationApiCall } from "../../services/general.services";
+import { getAllLocationsByType } from "../../redux/actions/locations.action";
 
 const DetailCard = ({ title, addTo, viewTo, editTo, results }: IDetailCard) => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<any>();
   const renderTooltip = (name: string, ...props: any) => (
     <Tooltip id="button-tooltip" {...props}>
       <div style={{ fontSize: "10px" }}>{name}</div>
@@ -75,7 +77,14 @@ const DetailCard = ({ title, addTo, viewTo, editTo, results }: IDetailCard) => {
                       delay={{ show: 100, hide: 100 }}
                       overlay={renderTooltip("Delete")}
                     >
-                      <div>
+                      <div
+                        onClick={() => {
+                          deleteLocationApiCall(items?._id);
+                          dispatch(
+                            getAllLocationsByType({ type: items?.type })
+                          );
+                        }}
+                      >
                         <DeleteIcon />
                       </div>
                     </OverlayTrigger>
