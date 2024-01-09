@@ -1,0 +1,50 @@
+.main_container {
+  display: flex;
+  gap: 4rem;
+  flex-wrap: wrap;
+  .container {
+    flex-grow: 1;
+    background-color: rgb(255, 255, 255);
+    color: rgb(38, 38, 38);
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 1px -1px,
+      rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
+    overflow: hidden;
+    padding: 20px;
+    .button {
+      width: fit-content;
+    }
+  }
+  p {
+    margin-top: 1.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+  }
+  .img {
+    max-width: 200px;
+    position: relative;
+    text-align: inherit;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .heading {
+      position: absolute;
+      bottom: 115px;
+      color: white;
+      text-align: center;
+    }
+    .subheading {
+      position: absolute;
+      bottom: 74px;
+      color: white;
+      text-align: center;
+      font-size: 8px;
+    }
+    img {
+      object-fit: contain;
+    }
+  }
+}
