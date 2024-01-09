@@ -4,6 +4,7 @@ import classes from "./Dashboard.module.scss";
 import AppGoogleMap from "../../components/googleMap/AppGoogleMap";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllMapLocations } from "../../redux/actions/dashboard.action";
+import ApexChart from "../../components/graph/ApexChart";
 const Dashboard = () => {
   const dispatch = useDispatch<any>();
   const { allMapLocations } = useSelector((state: any) => state.root.dashboard);
@@ -69,7 +70,9 @@ const Dashboard = () => {
         </div>
         <div className={classes.locations_container}>
           {focus === "graph" ? (
-            <>Graph</>
+            <>
+              <ApexChart />
+            </>
           ) : (
             <>
               <AppGoogleMap allMapLocations={allMapLocations} />
